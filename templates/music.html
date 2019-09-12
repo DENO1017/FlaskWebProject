@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>{{ title }}</h1>
+</div>
+
+<body>
+    <div class="bigbox">
+        {% for music in musics %}
+        <div class="box">
+            <a href="{{ url_for('static', filename= 'playlists/'+music.list+'content/'+music.filename+'.mp3') }}">
+                <div class="mask"><br /><br /><br />{{music.title}}<br />{{music.musician}}<br />{{music.albumn}}</div>
+                <img src="{{ url_for('static', filename = 'playlists/'+music.list+'content/'+music.filename+'.jpg') }}" alt="picture - 1" width="300" height="300" /><br />
+                <audio src="{{ url_for('static', filename='playlists/'+music.list+'content/'+music.filename+'.mp3') }}" controls="controls">Your browser does not support the audio element.</audio>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+{% endblock %}

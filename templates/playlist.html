@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Hit Playlist</h1>
+</div>
+
+<body>
+    <div class="bigbox">
+        {% for lst in playlists %}
+        <div class="box">
+            <a href="{{ url_for('_playlist_',id=lst.id)}}">
+                <div class="mask"><br /><br /><br /><br /><br />{{lst.title}}</div>
+                <img src="{{ url_for('static', filename='playlists/'+lst.id+'/'+lst.id+'.jpg') }}" alt="picture - 1" width="300" height="300" /><br />
+            </a>
+</div>
+        {% endfor %}
+    </div>
+</body>
+
+{% endblock %}

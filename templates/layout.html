@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - My Flask Application</title>
+    <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+    <script src="/static/scripts/modernizr-2.6.2.js"></script>
+    <style>
+        .bigbox {
+            -webkit-column-count: 3;
+        }
+    </style>
+    <style>
+        .bigbox2 {
+            -webkit-column-count: 5;
+        }
+    </style>
+    <style>
+        .box {
+            position: relative;
+            width: 350px;
+            height: 350px;
+        }
+
+            .box .mask {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 300px;
+                width: 300px;
+                font-size: 20px;
+                background: rgba(0,0,0,0.7);
+                color: #f5f1e5;
+                line-height: 30px;
+                text-align: center;
+                border-radius: 150px;
+                display: none;
+                z-index: 3;
+            }
+
+            .box:hover img {
+                -webkit-filter: blur(10px);
+                -moz-filter: blur(10px);
+                -ms-filter: blur(10px);
+                border-radius: 150px;
+                filter: blur(10px);
+                filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+            }
+
+            .box:hover .mask {
+                display: block;
+            }
+    </style>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">3160102215苏曼HW2</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('favorite') }}">Favorite</a></li>
+                    <li><a href="{{ url_for('dislike') }}">Dislike</a></li>
+                    <li><a href="{{ url_for('playlist') }}">Hit Playlist</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        {% block content %}{% endblock %}
+        <hr />
+        <footer>
+            <p>&copy; {{ year }} - 3160102215苏曼HW2</p>
+        </footer>
+    </div>
+
+    <script src="/static/scripts/jquery-1.10.2.js"></script>
+    <script src="/static/scripts/bootstrap.js"></script>
+    <script src="/static/scripts/respond.js"></script>
+    {% block scripts %}{% endblock %}
+
+</body>
+</html>
